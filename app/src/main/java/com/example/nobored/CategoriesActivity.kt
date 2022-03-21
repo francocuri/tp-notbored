@@ -19,6 +19,7 @@ class CategoriesActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initRecyclerView()
+        //ree
     }
 
     private fun initRecyclerView() {
