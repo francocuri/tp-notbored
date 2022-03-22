@@ -12,5 +12,9 @@ Dignissim faucibus auctor in vitae porttitor tellus nascetur tempor sociosqu, el
 Nisl pulvinar taciti tellus diam quam dictum cursus potenti euismod natoque feugiat mattis ornare tortor, aliquam orci dapibus inceptos id egestas ante viverra donec aptent suscipit nulla. Eget nisl fringilla cras felis maecenas nisi ridiculus id
  conubia hac primis sem ullamcorper porttitor, rutrum ac sodales ultrices vestibulum cum leo semper fusce porta eu fermentum. Proin nisi suspendisse class facilisi curabitur quisque, fusce vulputate semper a nulla velit, duis in orci faucibus turpis. \n\n Risus metus magnis aliquam accumsan laoreet congue per, tempus purus et odio senectus sodales vulputate, ligula malesuada dis habitasse nullam pellentesque.</string>
     <string name="i_agree_terms">I agree terms and conditions</string>
+    <string name="participants">Participants</string>
+    <string name="price">price</string>
+    <string name="participantValue">2</string>
+    <string name="priceValue">Medium</string>
 
 </resources>

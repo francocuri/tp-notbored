@@ -1,8 +1,10 @@
-package com.example.nobored
+package com.example.nobored.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.nobored.ui.CategoriesViewHolder
+import com.example.nobored.R
 
 class CategoriesAdapter(private var categories: List<String>, private val participants: Int) : RecyclerView.Adapter<CategoriesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesViewHolder {
@@ -13,11 +15,6 @@ class CategoriesAdapter(private var categories: List<String>, private val partic
     override fun onBindViewHolder(holder: CategoriesViewHolder, position: Int) {
         val categoryAtPosition = categories[position]
         holder.bind(categoryAtPosition)
-
-        holder.binding.itemCategory.setOnClickListener{
-            println("${holder.binding.tvCategory.text} was selected. Participants = $participants")
-            // TODO: Here goes the Activity transition
-        }
     }
 
     override fun getItemCount() = categories.size
