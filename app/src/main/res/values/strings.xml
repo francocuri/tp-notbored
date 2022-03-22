@@ -16,5 +16,6 @@ Nisl pulvinar taciti tellus diam quam dictum cursus potenti euismod natoque feug
     <string name="price">price</string>
     <string name="participantValue">2</string>
     <string name="priceValue">Medium</string>
+    <string name="try_another">Try another</string>
 
 </resources>

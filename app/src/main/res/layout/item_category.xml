@@ -40,4 +40,6 @@
         app:layout_constraintTop_toTopOf="@+id/tvCategory"
         app:layout_constraintVertical_bias="0.428"
         app:srcCompat="@drawable/ic_baseline_keyboard_arrow_right_24" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
