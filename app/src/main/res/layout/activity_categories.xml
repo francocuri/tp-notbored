@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#d4f5ff"
-    tools:context=".CategoriesActivity">
+    tools:context=".ui.CategoriesActivity">
 
     <View
         android:id="@+id/vHeader"
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Activities"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/vHeader"

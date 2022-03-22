@@ -1,4 +1,4 @@
-package com.example.nobored
+package com.example.nobored.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
