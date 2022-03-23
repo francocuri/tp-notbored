@@ -44,13 +44,18 @@
         android:id="@+id/activityText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="160dp"
+        android:layout_marginEnd="16dp"
+        android:textAlignment="center"
         android:textSize="28sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vHeader"
+        app:layout_constraintVertical_bias="0.0"
         tools:text="Learn how to play a new sport" />
 
     <TextView
@@ -58,14 +63,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:text="@string/participants"
+        android:text="@string/participantsText"
         android:textSize="25sp"
         android:textStyle="bold"
+        app:drawableStartCompat="@drawable/ic_baseline_person_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.152"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activityText"
-        app:drawableStartCompat="@drawable/ic_baseline_person_24" />
+        app:layout_constraintTop_toBottomOf="@+id/activityText" />
 
 
     <TextView
@@ -73,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="@string/price"
+        android:text="@string/priceText"
         android:textSize="25sp"
         android:textStyle="bold"
         app:drawableStartCompat="@drawable/ic_baseline_attach_money_24"
@@ -109,6 +114,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textParticipantsValue" />
 
     <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="44dp"

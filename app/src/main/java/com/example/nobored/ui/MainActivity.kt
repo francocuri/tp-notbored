@@ -3,6 +3,9 @@ package com.example.nobored.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import androidx.core.widget.addTextChangedListener
 import com.example.nobored.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -17,21 +20,23 @@ class MainActivity : AppCompatActivity() {
         val buttonStart = binding.bttnStart
         val tvTerms = binding.tvTermsAndConditions
 
-        buttonStart.setOnClickListener { initNextActivity()}
+        disableOrEnableButton()
+        buttonStart.setOnClickListener { initNextActivity() }
         tvTerms.setOnClickListener { showTermsAndConditions() }
     }
 
     private fun initNextActivity() {
+
         val etParticipants = binding.etParticipants
         val numOfParticipants = etParticipants.text.toString()
-        val participants = if(!numOfParticipants.isBlank()) numOfParticipants.toInt() else 0
-
-        if(participants > 0){
+        val participants = if (!numOfParticipants.isBlank()) numOfParticipants.toInt() else 0
+        if (participants > 0) {
             val intent = Intent(this, CategoriesActivity::class.java).apply {
                 putExtra("participants", participants)
             }
             startActivity(intent)
-        }else{
+        } else {
+            binding.bttnStart.isEnabled = false
             Snackbar.make(binding.root, "Please enter a valid number", Snackbar.LENGTH_LONG).show()
         }
     }
@@ -40,4 +45,13 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, TermsActivity::class.java)
         startActivity(intent)
     }
+
+
+    private fun disableOrEnableButton() {
+
+        binding.etParticipants.addTextChangedListener {
+            binding.bttnStart.isEnabled = !(it.toString().contains("0"))
+        }
+    }
+
 }
