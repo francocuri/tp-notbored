@@ -14,7 +14,7 @@ class CategoriesAdapter(private var categories: List<String>, private val partic
 
     override fun onBindViewHolder(holder: CategoriesViewHolder, position: Int) {
         val categoryAtPosition = categories[position]
-        holder.bind(categoryAtPosition)
+        holder.bind(categoryAtPosition, participants)
     }
 
     override fun getItemCount() = categories.size

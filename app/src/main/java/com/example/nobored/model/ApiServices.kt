@@ -10,6 +10,7 @@ interface ApiServices {
 
     @GET("api/activity?")
     suspend fun getActivitiesNoBored(
-        @Query("type") type: String
+        @Query("type") type: String, @Query("participants") participants : Int
     ): Response<ResponseActivity>
+
 }
