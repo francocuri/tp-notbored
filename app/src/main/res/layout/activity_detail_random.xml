@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#d4f5ff"
-    tools:context=".ui.CategoriesActivity">
+    tools:context=".ui.DetailRandomActivity">
 
     <View
         android:id="@+id/vHeader"
@@ -20,7 +20,7 @@
         android:id="@+id/tvTitleActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Activities"
+        android:text="@string/random"
         android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"
@@ -75,6 +75,20 @@
         app:layout_constraintHorizontal_bias="0.123"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textParticipants" />
+
+    <TextView
+        android:id="@+id/textCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/category"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:drawableStartCompat="@drawable/ic_baseline_format_list_bulleted_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPrice" />
 
     <TextView
         android:id="@+id/textParticipantsValue"

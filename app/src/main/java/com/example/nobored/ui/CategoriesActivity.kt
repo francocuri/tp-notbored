@@ -1,7 +1,9 @@
 package com.example.nobored.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import com.example.nobored.databinding.ActivityCategoriesBinding
 import com.example.nobored.model.Activities
 
@@ -19,6 +21,13 @@ class CategoriesActivity : AppCompatActivity() {
         participants = intent.getIntExtra("participants",participants)
         setContentView(binding.root)
         initRecyclerView()
+
+        val randomButton = binding.ivRandom
+        randomButton.setOnClickListener {
+            val intent = Intent(this, DetailRandomActivity::class.java)
+            intent.putExtra("participants", participants)
+            ContextCompat.startActivity(this, intent, null)
+        }
     }
 
     private fun initRecyclerView() {
