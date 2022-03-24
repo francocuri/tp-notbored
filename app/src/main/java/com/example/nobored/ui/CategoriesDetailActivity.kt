@@ -2,6 +2,7 @@ package com.example.nobored.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import com.example.nobored.Utils
 import com.example.nobored.databinding.ActivityDetailBinding
 import com.example.nobored.model.ApiServices
@@ -10,6 +11,7 @@ import com.example.nobored.model.RetrofitServiceBuilder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+
 
 class CategoriesDetailActivity : AppCompatActivity() {
 
@@ -24,12 +26,14 @@ class CategoriesDetailActivity : AppCompatActivity() {
         activityCategory = intent.getStringExtra("activity").toString().lowercase()
         participants = intent.getIntExtra("participants",participants)
 
+        val buttonTryAnother: Button = binding.bttnTryAnother
+
         getService()
+        buttonTryAnother.setOnClickListener { getService() }
 
     }
 
-
-    private fun getService() {
+    private fun getService(): Unit {
         CoroutineScope(Dispatchers.IO).launch {
             val call =
                 RetrofitServiceBuilder("https://www.boredapi.com/").buildService(ApiServices::class.java)
@@ -51,4 +55,6 @@ class CategoriesDetailActivity : AppCompatActivity() {
         }
     }
 }
+
+
 

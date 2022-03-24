@@ -23,7 +23,9 @@ class DetailRandomActivity : AppCompatActivity() {
         setContentView(binding.root)
         participants = intent.getIntExtra("participants",participants)
 
+        val buttonTryAnother = binding.buttonTryAnother
         getService()
+        buttonTryAnother.setOnClickListener { getService() }
 
     }
 
