@@ -29,7 +29,7 @@ class CategoriesDetailActivity : AppCompatActivity() {
         val buttonTryAnother: Button = binding.bttnTryAnother
 
         getService()
-        buttonTryAnother.setOnClickListener { getService() }
+        buttonTryAnother.setOnClickListener {   this.onBackPressed() }
 
     }
 

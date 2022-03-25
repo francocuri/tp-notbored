@@ -20,7 +20,7 @@
         android:id="@+id/tvTitleActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Activities"
+        android:text="@string/random"
         android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"
