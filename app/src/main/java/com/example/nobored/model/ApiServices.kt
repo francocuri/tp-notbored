@@ -12,5 +12,4 @@ interface ApiServices {
     suspend fun getActivitiesNoBored(
         @Query("type") type: String, @Query("participants") participants : Int
     ): Response<ResponseActivity>
-
 }
