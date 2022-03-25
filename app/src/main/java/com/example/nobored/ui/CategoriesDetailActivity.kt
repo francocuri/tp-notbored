@@ -29,17 +29,23 @@ class CategoriesDetailActivity : AppCompatActivity() {
         val buttonTryAnother: Button = binding.bttnTryAnother
 
         getService()
+
+        // buttonTryAnother press event would be the same as back press event
         buttonTryAnother.setOnClickListener {   this.onBackPressed() }
 
     }
 
+    /**
+     * getService builds an instance of Retrofit, send the request and set data to CategoriesDetail activity
+     */
     private fun getService(): Unit {
         CoroutineScope(Dispatchers.IO).launch {
             val call =
                 RetrofitServiceBuilder("https://www.boredapi.com/").buildService(ApiServices::class.java)
-                    .getActivitiesNoBored(activityCategory, participants)
+                    .getActivitiesNotBored(activityCategory, participants)
             val activity: ResponseActivity? = call.body()
             runOnUiThread {
+                // We use this condition because service returns the same status even if no activity was found
                 if (activity?.error?.contains("No activity found") != true) {
                     binding.activityText.text = activity?.activity
                     binding.tvTitleActivity.text =

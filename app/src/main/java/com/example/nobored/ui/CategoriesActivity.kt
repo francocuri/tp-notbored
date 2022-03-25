@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import com.example.nobored.databinding.ActivityCategoriesBinding
-import com.example.nobored.model.Activities
+import com.example.nobored.model.Categories
 
 class CategoriesActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityCategoriesBinding
     private lateinit var adapter: CategoriesAdapter
-    private var activities = Activities()
+    private var categories = Categories()
 
     private var participants = 0
 
@@ -23,6 +23,10 @@ class CategoriesActivity : AppCompatActivity() {
         initRecyclerView()
 
         val randomButton = binding.ivRandom
+
+        /**
+         * We set participants parameter to be used on getRandomActivity
+         */
         randomButton.setOnClickListener {
             val intent = Intent(this, DetailRandomActivity::class.java)
             intent.putExtra("participants", participants)
@@ -31,7 +35,7 @@ class CategoriesActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
-        adapter = CategoriesAdapter(activities.listActivities, participants)
+        adapter = CategoriesAdapter(categories.listActivities, participants)
         binding.rvCategories.adapter = adapter
     }
 

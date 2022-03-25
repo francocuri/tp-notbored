@@ -25,6 +25,9 @@ class MainActivity : AppCompatActivity() {
         tvTerms.setOnClickListener { showTermsAndConditions() }
     }
 
+    /**
+     * initNextActivity sets 'participants' parameter to be used on getActivitiesNotBored() or getRandomActivity()
+     */
     private fun initNextActivity() {
 
         val etParticipants = binding.etParticipants
@@ -35,14 +38,10 @@ class MainActivity : AppCompatActivity() {
                 putExtra("participants", participants)
             }
             startActivity(intent)
-        }
-        /**
-         * En el flujo de la app, este caso (else) nunca es accedido.
-         */
-        /*else {
+        } else {
             Snackbar.make(binding.root, "Please enter a valid number", Snackbar.LENGTH_LONG).show()
             binding.bttnStart.isEnabled = false
-        }*/
+        }
     }
 
     private fun showTermsAndConditions() {
@@ -51,6 +50,9 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    /**
+     * disableOrEnableButton enables start button when input is greater than zero
+     */
     private fun disableOrEnableButton() {
 
         binding.etParticipants.addTextChangedListener {

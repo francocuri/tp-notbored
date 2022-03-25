@@ -30,6 +30,9 @@ class DetailRandomActivity : AppCompatActivity() {
     }
 
 
+    /**
+     * getService builds an instance of Retrofit, send the request and set data to DetailRandom activity
+     */
     private fun getService() {
         CoroutineScope(Dispatchers.IO).launch {
             val call =
@@ -37,6 +40,7 @@ class DetailRandomActivity : AppCompatActivity() {
                     .getRandomActivity(participants)
             val activity: ResponseActivity? = call.body()
             runOnUiThread {
+                // We use this condition because service returns the same status even if no activity was found
                 if (activity?.error?.contains("No activity found") != true) {
                     binding.activityText.text = activity?.activity
                     binding.textCategory.text = activity?.type?.replaceFirstChar { it.uppercase() }

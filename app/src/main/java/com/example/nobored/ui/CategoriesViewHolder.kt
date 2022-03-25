@@ -12,6 +12,9 @@ class CategoriesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     fun bind(category: String, participants : Int) {
         binding.tvCategory.text = category
+        /**
+         * We set onClickListener and parameters needed for getActivitiesNotBored
+         */
         itemView.setOnClickListener {
             val intent = Intent(itemView.context, CategoriesDetailActivity::class.java)
             intent.putExtra("activity", binding.tvCategory.text)

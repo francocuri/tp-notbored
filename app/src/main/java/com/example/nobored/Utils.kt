@@ -1,6 +1,9 @@
 package com.example.nobored
 
 object Utils {
+    /**
+     * convertPrice sets a description according to price value
+     */
     fun convertPrice(priceDouble: Double?): String {
         return when (priceDouble!!) {
             0.0 -> "Free"
