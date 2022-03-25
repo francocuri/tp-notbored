@@ -28,8 +28,9 @@ class CategoriesActivity : AppCompatActivity() {
          * We set participants parameter to be used on getRandomActivity
          */
         randomButton.setOnClickListener {
-            val intent = Intent(this, DetailRandomActivity::class.java)
+            val intent = Intent(this, CategoriesDetailActivity::class.java)
             intent.putExtra("participants", participants)
+            intent.putExtra("isRandom", true)
             ContextCompat.startActivity(this, intent, null)
         }
     }
