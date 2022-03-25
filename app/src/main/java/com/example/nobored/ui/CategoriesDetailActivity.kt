@@ -27,7 +27,6 @@ class CategoriesDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
         activityCategory = intent.getStringExtra("activity").toString().lowercase()
         participants = intent.getIntExtra("participants", participants)
-
         random = intent.getBooleanExtra("isRandom", false)
 
         val buttonTryAnother: Button = binding.bttnTryAnother
@@ -44,20 +43,10 @@ class CategoriesDetailActivity : AppCompatActivity() {
     /**
      * getService builds an instance of Retrofit, send the request and set data to CategoriesDetail activity
      */
-    private fun getService(random: Boolean): Unit {
-        var activity: ResponseActivity? = null
+    private fun getService(random: Boolean) {
+        var activity: ResponseActivity?
         CoroutineScope(Dispatchers.IO).launch {
-            activity = if (random) {
-                val call =
-                    RetrofitServiceBuilder("https://www.boredapi.com/").buildService(ApiServices::class.java)
-                        .getRandomActivity(participants)
-                call.body()
-            } else {
-                val call =
-                    RetrofitServiceBuilder("https://www.boredapi.com/").buildService(ApiServices::class.java)
-                        .getActivitiesNotBored(activityCategory, participants)
-                call.body()
-            }
+            activity = getCallRetrofitBuilder()
             runOnUiThread {
                 // We use this condition because service returns the same status even if no activity was found
                 val textCat = binding.textCategory
@@ -78,6 +67,26 @@ class CategoriesDetailActivity : AppCompatActivity() {
 
         }
     }
+
+
+    private suspend fun getCallRetrofitBuilder(): ResponseActivity? {
+        return when (random) {
+            true -> {
+                val call =
+                    RetrofitServiceBuilder("https://www.boredapi.com/").buildService(ApiServices::class.java)
+                        .getRandomActivity(participants)
+                call.body()
+            }
+            else -> {
+                val call =
+                    RetrofitServiceBuilder("https://www.boredapi.com/").buildService(ApiServices::class.java)
+                        .getActivitiesNotBored(activityCategory, participants)
+                call.body()
+            }
+        }
+
+    }
+
 }
 
 
