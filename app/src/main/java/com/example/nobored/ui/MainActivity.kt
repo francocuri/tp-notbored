@@ -35,10 +35,14 @@ class MainActivity : AppCompatActivity() {
                 putExtra("participants", participants)
             }
             startActivity(intent)
-        } else {
-            binding.bttnStart.isEnabled = false
-            Snackbar.make(binding.root, "Please enter a valid number", Snackbar.LENGTH_LONG).show()
         }
+        /**
+         * En el flujo de la app, este caso (else) nunca es accedido.
+         */
+        /*else {
+            Snackbar.make(binding.root, "Please enter a valid number", Snackbar.LENGTH_LONG).show()
+            binding.bttnStart.isEnabled = false
+        }*/
     }
 
     private fun showTermsAndConditions() {

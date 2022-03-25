@@ -12,4 +12,11 @@ interface ApiServices {
     suspend fun getActivitiesNoBored(
         @Query("type") type: String, @Query("participants") participants : Int
     ): Response<ResponseActivity>
+
+    @GET("api/activity?")
+    suspend fun getRandomActivity(
+        @Query("participants") participants : Int
+    ): Response<ResponseActivity>
+
+
 }

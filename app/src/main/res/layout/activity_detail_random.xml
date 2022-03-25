@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#d4f5ff"
-    tools:context=".ui.CategoriesActivity">
+    tools:context=".ui.DetailRandomActivity">
 
     <View
         android:id="@+id/vHeader"
@@ -63,7 +63,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activityText" />
 
-
     <TextView
         android:id="@+id/textPrice"
         android:layout_width="wrap_content"
@@ -78,6 +77,20 @@
         app:layout_constraintHorizontal_bias="0.123"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textParticipants" />
+
+    <TextView
+        android:id="@+id/textCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/category"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:drawableStartCompat="@drawable/ic_baseline_format_list_bulleted_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textPrice"
+        app:layout_constraintTop_toBottomOf="@+id/textPrice"
+        app:layout_constraintVertical_bias="0.15" />
 
     <TextView
         android:id="@+id/textParticipantsValue"
@@ -98,7 +111,7 @@
         android:id="@+id/textPriceValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="36dp"
         android:text="@string/priceValue"
         android:textColor="@color/black"
         android:textSize="25sp"
@@ -108,7 +121,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textParticipantsValue" />
 
     <Button
-        android:id="@+id/bttn_try_another"
+        android:id="@+id/buttonTryAnother"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/try_another"

@@ -2,9 +2,10 @@ package com.example.nobored.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import com.example.nobored.R
 import com.example.nobored.Utils
 import com.example.nobored.databinding.ActivityDetailBinding
+import com.example.nobored.databinding.ActivityDetailRandomBinding
 import com.example.nobored.model.ApiServices
 import com.example.nobored.model.ResponseActivity
 import com.example.nobored.model.RetrofitServiceBuilder
@@ -12,38 +13,33 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-
-class CategoriesDetailActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityDetailBinding
-    private lateinit var activityCategory: String
+class DetailRandomActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityDetailRandomBinding
     private  var participants : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDetailBinding.inflate(layoutInflater)
+        binding = ActivityDetailRandomBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        activityCategory = intent.getStringExtra("activity").toString().lowercase()
         participants = intent.getIntExtra("participants",participants)
 
-        val buttonTryAnother: Button = binding.bttnTryAnother
-
+        val buttonTryAnother = binding.buttonTryAnother
         getService()
         buttonTryAnother.setOnClickListener { getService() }
 
     }
 
-    private fun getService(): Unit {
+
+    private fun getService() {
         CoroutineScope(Dispatchers.IO).launch {
             val call =
                 RetrofitServiceBuilder("https://www.boredapi.com/").buildService(ApiServices::class.java)
-                    .getActivitiesNoBored(activityCategory, participants)
+                    .getRandomActivity(participants)
             val activity: ResponseActivity? = call.body()
             runOnUiThread {
                 if (activity?.error?.contains("No activity found") != true) {
                     binding.activityText.text = activity?.activity
-                    binding.tvTitleActivity.text =
-                        activityCategory.replaceFirstChar { it.uppercase() }
+                    binding.textCategory.text = activity?.type?.replaceFirstChar { it.uppercase() }
                     binding.textParticipantsValue.text = activity?.participants.toString()
                     binding.textPriceValue.text = Utils.convertPrice(activity?.price)
 
@@ -55,6 +51,3 @@ class CategoriesDetailActivity : AppCompatActivity() {
         }
     }
 }
-
-
-
